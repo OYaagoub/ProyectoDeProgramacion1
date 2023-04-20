@@ -9,5 +9,7 @@ package project_tacion_de_oro;
  * @author usuario
  */
 public class Articulo {
+
+        
     
 }
