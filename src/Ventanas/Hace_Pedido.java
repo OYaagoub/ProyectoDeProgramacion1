@@ -13,7 +13,7 @@ public class Hace_Pedido extends javax.swing.JDialog {
     /**
      * Creates new form Hace_Pedido
      */
-    public Hace_Pedido(java.awt.Frame parent, boolean modal) {
+    public Hace_Pedido(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -86,7 +86,7 @@ public class Hace_Pedido extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Hace_Pedido dialog = new Hace_Pedido(new javax.swing.JFrame(), true);
+                Hace_Pedido dialog = new Hace_Pedido(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

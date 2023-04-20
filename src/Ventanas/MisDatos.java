@@ -13,7 +13,7 @@ public class MisDatos extends javax.swing.JDialog {
     /**
      * Creates new form MisDatos
      */
-    public MisDatos(java.awt.Frame parent, boolean modal) {
+    public MisDatos(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -227,7 +227,7 @@ public class MisDatos extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                MisDatos dialog = new MisDatos(new javax.swing.JFrame(), true);
+                MisDatos dialog = new MisDatos(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
