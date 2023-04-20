@@ -11,6 +11,7 @@ package project_tacion_de_oro;
 public class LineaPedido  {
     private int idlineapedido;
     private int cantidad;
+    
 
     public LineaPedido() {
     }

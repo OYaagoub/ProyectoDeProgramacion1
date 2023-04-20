@@ -14,6 +14,7 @@ public class Socio {
 	private String correoE;
 	private String direccion;
 	private String poblacion;
+        
 
     public Socio(int id, String nombre, String correoE, String direccion, String poblacion) {
         this.id = id;

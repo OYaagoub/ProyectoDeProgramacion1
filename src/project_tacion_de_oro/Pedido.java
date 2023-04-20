@@ -4,6 +4,8 @@
  */
 package project_tacion_de_oro;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author usuario
@@ -11,7 +13,22 @@ package project_tacion_de_oro;
 public class Pedido {
     private String fecha;
     private float total;
+    private ArrayList<LineaPedido> LineaPedido;
 
+    public ArrayList<LineaPedido> getLineaPedido() {
+        return LineaPedido;
+    }
+
+    public void setLineaPedido(ArrayList<LineaPedido> LineaPedido) {
+        this.LineaPedido = LineaPedido;
+    }
+
+    public Pedido(String fecha, float total, ArrayList<LineaPedido> LineaPedido) {
+        this.fecha = fecha;
+        this.total = total;
+        this.LineaPedido = LineaPedido;
+    }
+    
     public Pedido(String fecha, float total) {
         this.fecha = fecha;
         this.total = total;
