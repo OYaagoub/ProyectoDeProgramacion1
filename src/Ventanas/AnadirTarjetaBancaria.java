@@ -92,7 +92,17 @@ public class AnadirTarjetaBancaria extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        String caracter16, caracter17;
+        int longitud = tf_tarjetabancaria.getText().length();
+        if (tf_tarjetabancaria.getText().equalsIgnoreCase("")){
+            
+        } else {
+            if (longitud != 15){
+                tf_notificacion.setText("Tiene que tener 16 numeros");
+            } else {
+                
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tf_tarjetabancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_tarjetabancariaActionPerformed
