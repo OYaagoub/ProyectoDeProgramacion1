@@ -4,6 +4,8 @@
  */
 package Ventanas;
 
+import project_tacion_de_oro.Socio;
+
 /**
  *
  * @author usuario
@@ -40,7 +42,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         jButton = new javax.swing.JButton();
         jRBInicioSesion = new javax.swing.JRadioButton();
         jRBRegistrar = new javax.swing.JRadioButton();
-        jTContraseña = new javax.swing.JTextField();
+        jTContrasenia = new javax.swing.JTextField();
         jLContrasena1 = new javax.swing.JLabel();
         jTRepitaContraseña = new javax.swing.JTextField();
         jLContrasena2 = new javax.swing.JLabel();
@@ -130,7 +132,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                             .addComponent(jTDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTPoblacion)
                             .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTContraseña)
+                            .addComponent(jTContrasenia)
                             .addComponent(jTRepitaContraseña))
                         .addGap(63, 63, 63))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -166,7 +168,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLContrasena1)
-                    .addComponent(jTContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLContrasena2)
@@ -198,7 +200,8 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
 
     private void jRBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBRegistrarActionPerformed
         // TODO add your handling code here:
-        
+        Socio reg = new Socio();
+        reg.registrar(jTNombre.getText(), jTEmail.getText().trim(), jTDireccion.getText(), jTPoblacion.getText(),jTContrasenia.getText().trim());
     }//GEN-LAST:event_jRBRegistrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -210,7 +213,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
     
     private void visualizacion(){
         //Quito visualizacion de jtext
-        jTContraseña.setVisible(false);
+        jTContrasenia.setVisible(false);
         jTDireccion.setVisible(false);
         jTEmail.setVisible(false);
         jTNombre.setVisible(false);
@@ -234,7 +237,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
             jLEmail.setVisible(true);
             jTEmail.setVisible(true);
             jLContrasena1.setVisible(true);
-            jTContraseña.setVisible(true);
+            jTContrasenia.setVisible(true);
             
             
         
@@ -296,7 +299,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRBInicioSesion;
     private javax.swing.JRadioButton jRBRegistrar;
-    private javax.swing.JTextField jTContraseña;
+    private javax.swing.JTextField jTContrasenia;
     private javax.swing.JTextField jTDireccion;
     private javax.swing.JTextField jTEmail;
     private javax.swing.JTextField jTNombre;

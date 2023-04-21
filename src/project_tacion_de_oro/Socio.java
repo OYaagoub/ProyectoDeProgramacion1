@@ -14,8 +14,27 @@ public class Socio {
 	private String correoE;
 	private String direccion;
 	private String poblacion;
-        
+        private String password;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Socio() {
+    }
+        
+    public Socio(String nombre, String correoE, String direccion, String poblacion,String password) {
+     
+        this.nombre = nombre;
+        this.correoE = correoE;
+        this.direccion = direccion;
+        this.poblacion = poblacion;
+        this.password = password;
+    }
     public Socio(int id, String nombre, String correoE, String direccion, String poblacion) {
         this.id = id;
         this.nombre = nombre;
@@ -23,7 +42,7 @@ public class Socio {
         this.direccion = direccion;
         this.poblacion = poblacion;
     }
-    public void registrar(String nombre, String correoE, String direccion, String poblacion){
+    public void registrar(String nombre, String correoE, String direccion, String poblacion,String password){
         
     }
     public void ModeficardatosPersonales(String nombre, String correoE, String direccion, String poblacion){

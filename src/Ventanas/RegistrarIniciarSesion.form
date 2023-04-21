@@ -82,7 +82,7 @@
                               <Component id="jTDireccion" alignment="1" max="32767" attributes="0"/>
                               <Component id="jTPoblacion" max="32767" attributes="0"/>
                               <Component id="jTNombre" min="-2" pref="158" max="-2" attributes="0"/>
-                              <Component id="jTContraseña" max="32767" attributes="0"/>
+                              <Component id="jTContrasenia" max="32767" attributes="0"/>
                               <Component id="jTRepitaContraseña" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -129,7 +129,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLContrasena1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -219,7 +219,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRBRegistrarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTContrase&#xf1;a">
+        <Component class="javax.swing.JTextField" name="jTContrasenia">
         </Component>
         <Component class="javax.swing.JLabel" name="jLContrasena1">
           <Properties>
