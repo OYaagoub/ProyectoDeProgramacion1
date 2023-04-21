@@ -45,7 +45,7 @@ public class Socio {
     public void registrar(String nombre, String correoE, String direccion, String poblacion,String password){
         
     }
-    public void ModeficardatosPersonales(String nombre, String correoE, String direccion, String poblacion){
+    public void ModeficardatosPersonales( int id, String nombre, String correoE, String direccion, String poblacion){
         
     }
     public void HacePedido(){
