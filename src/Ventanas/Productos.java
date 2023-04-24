@@ -11,7 +11,7 @@ import project_tacion_de_oro.*;
  * @author usuario
  */
 public class Productos extends javax.swing.JDialog {
-    private RegistrarIniciarSesion padre=null;
+    RegistrarIniciarSesion padre=null;
     /**
      * Creates new form Productos
      */

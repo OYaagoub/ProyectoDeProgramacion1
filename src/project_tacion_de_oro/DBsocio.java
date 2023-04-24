@@ -33,8 +33,6 @@ public class DBsocio implements Database{
 
                             
                             
-                        }else{
-                             
                         }
         } catch (Exception e) {
             
