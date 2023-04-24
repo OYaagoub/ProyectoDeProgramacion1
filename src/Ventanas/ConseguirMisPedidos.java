@@ -4,18 +4,54 @@
  */
 package Ventanas;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usuario
  */
 public class ConseguirMisPedidos extends javax.swing.JDialog {
-
+    DefaultTableModel dtmPersonas=null;
     /**
      * Creates new form ConseguirMisPedidos
      */
     public ConseguirMisPedidos(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        dtmPersonas = new DefaultTableModel();
+        dtmPersonas.addColumn("ID");
+        dtmPersonas.addColumn("Linea Pedido");
+        dtmPersonas.addColumn("Fecha");
+        dtmPersonas.addColumn("Total");
+        //asignamos el modelo de la vista tabla:
+        tbl_pedidos.setModel(dtmPersonas);
+        
+        Object [] fila1= new Object[4];
+                fila1[0]=1;// del resultSet obtengo la primera columna 
+                fila1[1]="Linea1";//columna del nombre
+                fila1[2]="20/12/2002";
+                fila1[3]=234;
+                dtmPersonas.addRow(fila1);
+        Object [] fila2= new Object[4];
+                fila2[0]=2;// del resultSet obtengo la primera columna 
+                fila2[1]="Linea2";//columna del nombre
+                fila2[2]="1/1/2002";
+                fila2[3]=124;
+                dtmPersonas.addRow(fila2);
+        Object [] fila3= new Object[4];
+                fila3[0]=3;// del resultSet obtengo la primera columna 
+                fila3[1]="Linea3";//columna del nombre
+                fila3[2]="14/12/2005";
+                fila3[3]=654;
+                dtmPersonas.addRow(fila3);
+        Object [] fila4= new Object[4];
+                fila4[0]=4;// del resultSet obtengo la primera columna 
+                fila4[1]="Linea4";//columna del nombre
+                fila4[2]="28/11/2005";
+                fila4[3]=999;
+                dtmPersonas.addRow(fila4);
+                
+        
     }
 
     /**
@@ -29,12 +65,12 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_pedidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_pedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -45,7 +81,7 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_pedidos);
 
         jLabel1.setText("Consegir Mis  Pedidos");
 
@@ -54,11 +90,11 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(453, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(199, 199, 199))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 283, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -122,16 +158,18 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
+                    
                 });
                 dialog.setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl_pedidos;
     // End of variables declaration//GEN-END:variables
 }
