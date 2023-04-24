@@ -16,7 +16,7 @@ public class MisDatos extends javax.swing.JDialog {
     /**
      * Creates new form MisDatos
      */
-    Socio s1=new Socio("ldsgjd","fsdk","sfada","aeferes","sffrg");
+    
     private Productos padre=null;
     
     
@@ -27,11 +27,11 @@ public class MisDatos extends javax.swing.JDialog {
         initComponents();
         padre=(Productos)parent; 
         Socio socio=padre.padre.getSocio();
-        tf_nombre.setText(s1.getNombre());
-        tf_correo.setText(s1.getCorreoE());
-        tf_direccion.setText(s1.getDireccion());
-        tf_poblacion.setText(s1.getPoblacion());
-        tf_contraseña.setText(s1.getPassword());
+        tf_nombre.setText(socio.getNombre());
+        tf_correo.setText(socio.getCorreoE());
+        tf_direccion.setText(socio.getDireccion());
+        tf_poblacion.setText(socio.getPoblacion());
+        tf_contraseña.setText(socio.getPassword());
     }
 
     /**
@@ -199,7 +199,7 @@ public class MisDatos extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        s1.ModeficardatosPersonales(1,tf_nombre.getText(), tf_correo.getText(), tf_direccion.getText(), tf_contraseña.getText());
+       // socio.ModeficardatosPersonales(1,tf_nombre.getText(), tf_correo.getText(), tf_direccion.getText(), tf_contraseña.getText());
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
