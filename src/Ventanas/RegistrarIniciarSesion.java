@@ -17,6 +17,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
      */
     public RegistrarIniciarSesion() {
         initComponents();
+        visualizacion();
     }
 
     public Socio getSocio() {
@@ -247,8 +248,18 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
 
     private void iniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniActionPerformed
         // TODO add your handling code here:
-        Productos pros = new Productos(this, true);
-        pros.setVisible(true);
+        Socio in = new Socio(jTEmail.getText().trim(),jTContrasenia1.getText().trim());
+        DBsocio db = new DBsocio();
+        socio= db.ClienteIn(in);
+        if(socio==null){
+            String message = "no existe";
+        }else{
+            Productos pros = new Productos(this, true);
+            pros.setVisible(true);
+        }
+        
+        
+        
         
     }//GEN-LAST:event_iniActionPerformed
 
@@ -256,7 +267,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
         Socio reg = new Socio();
         reg.registrar(jTNombre.getText(), jTEmail.getText().trim(), jTDireccion.getText(), jTPoblacion.getText(),jTContrasenia1.getText().trim());
-                         
+        System.out.println("ryj4rty");        
     }//GEN-LAST:event_reActionPerformed
 
     private void jRBInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBInicioSesionActionPerformed

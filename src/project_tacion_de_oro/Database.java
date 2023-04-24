@@ -9,5 +9,6 @@ package project_tacion_de_oro;
  * @author usuario
  */
 public interface Database {
-    public Socio Cliente(int i,Socio socio);
+    public Socio ClienteIn(Socio socio);
+    public void ClienteRe(Socio socio);
 }

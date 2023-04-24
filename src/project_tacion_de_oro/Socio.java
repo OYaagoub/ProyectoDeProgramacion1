@@ -56,7 +56,9 @@ public class Socio {
         this.password = password;
     }
     public void registrar(String nombre, String correoE, String direccion, String poblacion,String password){
-        
+        Socio in = new Socio(nombre.trim(),correoE.trim(),direccion.trim(),poblacion.trim(),password.trim());
+        DBsocio db = new DBsocio();
+        db.ClienteRe(in);
     }
     public void ModeficardatosPersonales( int id, String nombre, String correoE, String direccion, String poblacion){
         
