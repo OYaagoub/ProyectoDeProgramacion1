@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import javax.swing.DefaultListModel;
 import project_tacion_de_oro.Socio;
 
 /**
@@ -15,9 +16,22 @@ public class MisDatos extends javax.swing.JDialog {
     /**
      * Creates new form MisDatos
      */
+    Socio s1=new Socio("ldsgjd","fsdk","sfada","aeferes","sffrg");
+    private Productos padre=null;
+    
+    
+    
     public MisDatos(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
+        padre=(Productos)parent; 
+       // Socio socio=padre.getSocio;
+        tf_nombre.setText(s1.getNombre());
+        tf_correo.setText(s1.getCorreoE());
+        tf_direccion.setText(s1.getDireccion());
+        tf_poblacion.setText(s1.getPoblacion());
+        tf_contraseña.setText(s1.getPassword());
     }
 
     /**
@@ -107,7 +121,7 @@ public class MisDatos extends javax.swing.JDialog {
                 .addComponent(jButton1)
                 .addGap(65, 65, 65))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
+                .addContainerGap(87, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -165,7 +179,10 @@ public class MisDatos extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,15 +192,22 @@ public class MisDatos extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     
+      
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Socio s1=new Socio();
+        
         s1.ModeficardatosPersonales(1,tf_nombre.getText(), tf_correo.getText(), tf_direccion.getText(), tf_contraseña.getText());
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nombreActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_tf_nombreActionPerformed
 
     private void tf_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_correoActionPerformed
