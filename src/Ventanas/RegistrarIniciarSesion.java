@@ -4,20 +4,29 @@
  */
 package Ventanas;
 
-import project_tacion_de_oro.Socio;
+import project_tacion_de_oro.*;
 
 /**
  *
  * @author usuario
  */
 public class RegistrarIniciarSesion extends javax.swing.JFrame {
-
+    private  Socio socio;
     /**
      * Creates new form RegistrarIniciarSesion
      */
     public RegistrarIniciarSesion() {
         initComponents();
     }
+
+    public Socio getSocio() {
+        return socio;
+    }
+
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,14 +48,12 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         jTEmail = new javax.swing.JTextField();
         jTPoblacion = new javax.swing.JTextField();
         jLTitulo = new javax.swing.JLabel();
-        jButton = new javax.swing.JButton();
+        re = new javax.swing.JButton();
         jRBInicioSesion = new javax.swing.JRadioButton();
         jRBRegistrar = new javax.swing.JRadioButton();
-        jTContrasenia = new javax.swing.JTextField();
+        jTContrasenia1 = new javax.swing.JTextField();
         jLContrasena1 = new javax.swing.JLabel();
-        jTRepitaContraseña = new javax.swing.JTextField();
-        jLContrasena2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ini = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,13 +74,23 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         jLTitulo.setBackground(new java.awt.Color(0, 204, 0));
         jLTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLTitulo.setText("Inciar Sesión");
+        jLTitulo.setText("Elejer :");
 
-        jButton.setBackground(new java.awt.Color(0, 153, 51));
-        jButton.setText("Registarme");
+        re.setBackground(new java.awt.Color(0, 153, 51));
+        re.setText("Registarme");
+        re.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRBInicioSesion);
         jRBInicioSesion.setText("Iniciar Sesion");
+        jRBInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRBInicioSesionActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRBRegistrar);
         jRBRegistrar.setText("Registrar");
@@ -85,13 +102,11 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
 
         jLContrasena1.setText("Contraseña:");
 
-        jLContrasena2.setText("Repita Contraseña:");
-
-        jButton1.setBackground(new java.awt.Color(0, 153, 51));
-        jButton1.setText("Inciar Sesión");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ini.setBackground(new java.awt.Color(0, 153, 51));
+        ini.setText("Inciar Sesión");
+        ini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                iniActionPerformed(evt);
             }
         });
 
@@ -103,42 +118,49 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ini, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(re, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jRBRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRBInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLPoblacion)
-                                    .addComponent(jLDireccion)
-                                    .addComponent(jLEmail)
-                                    .addComponent(jLNombre))
-                                .addGap(106, 106, 106))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLContrasena2)
-                                    .addComponent(jLContrasena1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTPoblacion)
-                            .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTContrasenia)
-                            .addComponent(jTRepitaContraseña))
-                        .addGap(63, 63, 63))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jLTitulo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jRBRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRBInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLContrasena1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTContrasenia1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)))
+                        .addGap(54, 54, 54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLPoblacion)
+                                .addGap(106, 106, 106)
+                                .addComponent(jTPoblacion))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLNombre)
+                                        .addGap(115, 115, 115))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLDireccion)
+                                        .addGap(109, 109, 109)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTDireccion)
+                                    .addComponent(jTNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(63, 63, 63))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,10 +177,6 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                     .addComponent(jLNombre))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLEmail))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLDireccion)
                     .addComponent(jTDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -167,17 +185,17 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                     .addComponent(jLPoblacion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLEmail))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLContrasena1)
-                    .addComponent(jTContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jTContrasenia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLContrasena2)
-                    .addComponent(jTRepitaContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton)
-                    .addComponent(jButton1))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(re)
+                    .addComponent(ini))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,54 +218,91 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
 
     private void jRBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBRegistrarActionPerformed
         // TODO add your handling code here:
-        Socio reg = new Socio();
-        reg.registrar(jTNombre.getText(), jTEmail.getText().trim(), jTDireccion.getText(), jTPoblacion.getText(),jTContrasenia.getText().trim());
+        visualizacion();
+        
+        
+        jLTitulo.setText("Registrar");
+            
+        jTContrasenia1.setEnabled(true);
+        jTDireccion.setEnabled(true);
+        jTEmail.setEnabled(true);
+        jTNombre.setEnabled(true);
+        jTPoblacion.setEnabled(true);
+        
+        
+        //Quito visualizaion de jLabel
+        jLContrasena1.setEnabled(true);
+       
+        jLDireccion.setEnabled(true);
+        jLEmail.setEnabled(true);
+        jLNombre.setEnabled(true);
+        jLPoblacion.setEnabled(true);
+        jLTitulo.setEnabled(true);
+        ini.setVisible(false);
+        re.setVisible(true);
+            
+            
+  
     }//GEN-LAST:event_jRBRegistrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void iniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniActionPerformed
         // TODO add your handling code here:
         Productos pros = new Productos(this, true);
         pros.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_iniActionPerformed
+
+    private void reActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reActionPerformed
+        // TODO add your handling code here:
+        Socio reg = new Socio();
+        reg.registrar(jTNombre.getText(), jTEmail.getText().trim(), jTDireccion.getText(), jTPoblacion.getText(),jTContrasenia1.getText().trim());
+                         
+    }//GEN-LAST:event_reActionPerformed
+
+    private void jRBInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBInicioSesionActionPerformed
+        // TODO add your handling code here:
+        visualizacion();
+        
+            jLTitulo.setText("Inicio Sesion");
+            
+            jLEmail.setEnabled(true);
+            jTEmail.setEnabled(true);
+            jLContrasena1.setEnabled(true);
+            jTContrasenia1.setEnabled(true);
+            re.setVisible(false);
+            ini.setVisible(true);
+            
+        
+        
+    }//GEN-LAST:event_jRBInicioSesionActionPerformed
     
     private void visualizacion(){
         //Quito visualizacion de jtext
-        jTContrasenia.setVisible(false);
-        jTDireccion.setVisible(false);
-        jTEmail.setVisible(false);
-        jTNombre.setVisible(false);
-        jTPoblacion.setVisible(false);
-        jTRepitaContraseña.setVisible(false);
+        jTContrasenia1.setEnabled(false);
+        jTDireccion.setEnabled(false);
+        jTEmail.setEnabled(false);
+        jTNombre.setEnabled(false);
+        jTPoblacion.setEnabled(false);
+        
         
         //Quito visualizaion de jLabel
-        jLContrasena1.setVisible(false);
-        jLContrasena2.setVisible(false);
-        jLDireccion.setVisible(false);
-        jLEmail.setVisible(false);
-        jLNombre.setVisible(false);
-        jLPoblacion.setVisible(false);
-        jLTitulo.setVisible(false);
+        jLContrasena1.setEnabled(false);
+        
+        jLDireccion.setEnabled(false);
+        jLEmail.setEnabled(false);
+        jLNombre.setEnabled(false);
+        jLPoblacion.setEnabled(false);
+        jLTitulo.setEnabled(false);
         
         
         
-        if(jRBRegistrar.isSelected() == true && jRBInicioSesion.isSelected() == false){
-            jLTitulo.setText("Registrate");
-            
-            jLEmail.setVisible(true);
-            jTEmail.setVisible(true);
-            jLContrasena1.setVisible(true);
-            jTContrasenia.setVisible(true);
-            
-            
         
-        }
-        if(jRBRegistrar.isSelected() == false && jRBInicioSesion.isSelected() == true){
-            jLTitulo.setText("Iniciar Sesión");
-        }
-        if(jRBRegistrar.isSelected() == false && jRBInicioSesion.isSelected() == false){
-            jLTitulo.setText("elige una opción");
-        } 
+//        if(jRBRegistrar.isSelected() == false && jRBInicioSesion.isSelected() == true){
+//            jLTitulo.setText("Iniciar Sesión");
+//        }
+//        if(jRBRegistrar.isSelected() == false && jRBInicioSesion.isSelected() == false){
+//            jLTitulo.setText("elige una opción");
+//        } 
     }
     /**
      * @param args the command line arguments
@@ -287,10 +342,8 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ini;
     private javax.swing.JLabel jLContrasena1;
-    private javax.swing.JLabel jLContrasena2;
     private javax.swing.JLabel jLDireccion;
     private javax.swing.JLabel jLEmail;
     private javax.swing.JLabel jLNombre;
@@ -299,11 +352,11 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRBInicioSesion;
     private javax.swing.JRadioButton jRBRegistrar;
-    private javax.swing.JTextField jTContrasenia;
+    private javax.swing.JTextField jTContrasenia1;
     private javax.swing.JTextField jTDireccion;
     private javax.swing.JTextField jTEmail;
     private javax.swing.JTextField jTNombre;
     private javax.swing.JTextField jTPoblacion;
-    private javax.swing.JTextField jTRepitaContraseña;
+    private javax.swing.JButton re;
     // End of variables declaration//GEN-END:variables
 }

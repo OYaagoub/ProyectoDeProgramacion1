@@ -42,12 +42,18 @@ public class Socio {
         this.poblacion = poblacion;
         this.password = password;
     }
-    public Socio(int id, String nombre, String correoE, String direccion, String poblacion) {
+    public Socio(String correoE, String password) {
+        this.correoE = correoE;
+        this.password = password;
+        
+    }
+    public Socio(int id, String nombre, String correoE, String direccion, String poblacion,String password) {
         this.id = id;
         this.nombre = nombre;
         this.correoE = correoE;
         this.direccion = direccion;
         this.poblacion = poblacion;
+        this.password = password;
     }
     public void registrar(String nombre, String correoE, String direccion, String poblacion,String password){
         

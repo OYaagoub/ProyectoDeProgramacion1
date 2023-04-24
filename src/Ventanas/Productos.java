@@ -4,18 +4,22 @@
  */
 package Ventanas;
 
+import project_tacion_de_oro.*;
+
 /**
  *
  * @author usuario
  */
 public class Productos extends javax.swing.JDialog {
-
+    private RegistrarIniciarSesion padre=null;
     /**
      * Creates new form Productos
      */
     public Productos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        padre = (RegistrarIniciarSesion)parent;
+        Socio socio =padre.getSocio();
     }
 
     /**
@@ -46,6 +50,7 @@ public class Productos extends javax.swing.JDialog {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        MisDatos = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -196,6 +201,14 @@ public class Productos extends javax.swing.JDialog {
         });
         jMenuBar1.add(jMenu2);
 
+        MisDatos.setText("MisDatos");
+        MisDatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MisDatosMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(MisDatos);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -241,6 +254,12 @@ public class Productos extends javax.swing.JDialog {
         pros.setVisible(true);
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void MisDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MisDatosMouseClicked
+        // TODO add your handling code here:
+        MisDatos pros = new MisDatos(this, true);
+        pros.setVisible(true);
+    }//GEN-LAST:event_MisDatosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -284,6 +303,7 @@ public class Productos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MisDatos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
