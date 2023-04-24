@@ -26,7 +26,7 @@ public class MisDatos extends javax.swing.JDialog {
         
         initComponents();
         padre=(Productos)parent; 
-       // Socio socio=padre.getSocio;
+        Socio socio=padre.padre.getSocio();
         tf_nombre.setText(s1.getNombre());
         tf_correo.setText(s1.getCorreoE());
         tf_direccion.setText(s1.getDireccion());
