@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Ventanas;
+import project_tacion_de_oro.*; 
 
 /**
  *
@@ -92,15 +93,23 @@ public class AnadirTarjetaBancaria extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String caracter16, caracter17;
-        int longitud = tf_tarjetabancaria.getText().length();
+        boolean tarj = false;
+        int longitud = tf_tarjetabancaria.getText().trim().length();
         if (tf_tarjetabancaria.getText().equalsIgnoreCase("")){
-            
+            tf_notificacion.setText("Es obligatorio");
         } else {
-            if (longitud != 15){
+            if (longitud != 16){
                 tf_notificacion.setText("Tiene que tener 16 numeros");
             } else {
-                
+                TarjetaBancaria t1 = new TarjetaBancaria();
+                tarj = t1.comprobarValidez(tf_tarjetabancaria.getText());
+                if (tarj == true){
+                    tf_notificacion.setText("Se ha añadido la tarjeta con exito");
+                }
+                if (tarj == false){
+                    tf_notificacion.setText("Error al añadir la tarjeta");
+                }
+               
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

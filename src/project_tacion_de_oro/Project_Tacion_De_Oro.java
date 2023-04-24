@@ -18,6 +18,7 @@ public class Project_Tacion_De_Oro {
     public static void main(String[] args) {
         RegistrarIniciarSesion pros = new RegistrarIniciarSesion();
         pros.setVisible(true);
+
     }
     
 }

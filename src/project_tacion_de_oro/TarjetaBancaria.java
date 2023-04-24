@@ -54,7 +54,6 @@ public class TarjetaBancaria {
         boolean r = false;
         int sum = 0;
         int size = a.length();
-        
         for (int i = size - 1; i >= 0; i--) {
             
             int numeroseparado = Integer.parseInt(a.substring(i, i + 1));
@@ -66,7 +65,6 @@ public class TarjetaBancaria {
         if (sum % 10 == 0){
             r = true;
         }
-        
         return r;
     }
     private static int numerodoble(int numeroseparado) {
