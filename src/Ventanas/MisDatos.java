@@ -200,6 +200,15 @@ public class MisDatos extends javax.swing.JDialog {
         // TODO add your handling code here:
        Socio socio1=new Socio(socio.getId(),tf_nombre.getText(), tf_correo.getText(), tf_direccion.getText(),tf_poblacion.getText(), tf_contraseña.getText());
        socio1.ModeficardatosPersonales(socio1);
+       socio.setCorreoE(tf_correo.getText());
+       socio.setDireccion(tf_direccion.getText());
+       socio.setNombre(tf_nombre.getText());
+       socio.setPoblacion(tf_poblacion.getText());
+       socio.setPassword(tf_contraseña.getText());
+      
+       
+       
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

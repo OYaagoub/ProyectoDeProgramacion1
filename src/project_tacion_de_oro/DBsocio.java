@@ -4,7 +4,10 @@
  */
 package project_tacion_de_oro;
 
+import Ventanas.*;
+import java.awt.Component;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,11 +25,11 @@ public class DBsocio implements Database{
         DefaultTableModel l = new DefaultTableModel();
         Connection con = null;
         try {
-            System.out.println("dsgw3rg");
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
             //DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
             con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora"); 
-            System.out.println("fdsghwr");
+            
             PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             preparedStmtCheck.setString(1, Socio.getCorreoE());
             preparedStmtCheck.setString(2, Socio.getPassword());
@@ -39,6 +42,9 @@ public class DBsocio implements Database{
                             
                         }
         } catch (Exception e) {
+            String a=""+e.getMessage();
+            Component RegistrarIniciarSesion = null;
+            JOptionPane.showMessageDialog(RegistrarIniciarSesion,a );
             System.out.println(""+e.getMessage());
         } finally {
         }
@@ -73,7 +79,11 @@ public class DBsocio implements Database{
                 preparedStmt.setString(4, Socio.getPoblacion());
                 preparedStmt.setString(5, Socio.getPassword());            
                 preparedStmt.execute();
-                System.out.println("ya esta registrado");
+//                ------------------------------------------
+                Component RegistrarIniciarSesion = null;
+                JOptionPane.showMessageDialog(RegistrarIniciarSesion,"ya esta registrado" );
+//                ------------------------------------------
+                
             }
         } catch (Exception e) {
             System.out.println("" +e.getMessage());
@@ -103,7 +113,9 @@ public class DBsocio implements Database{
                 preparedStmt.setString(5, Socio.getPassword());  
                 preparedStmt.setInt(6, Socio.getId()); 
                 preparedStmt.execute();
-                System.out.println("ya esta actualizado");
+                Component MisDatos = null;
+                JOptionPane.showMessageDialog(MisDatos,"ya esta actualizado" );
+                
             
         } catch (Exception e) {
             System.out.println("" +e.getMessage());

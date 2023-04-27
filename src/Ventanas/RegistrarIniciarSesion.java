@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import javax.swing.JOptionPane;
 import project_tacion_de_oro.*;
 
 /**
@@ -18,6 +19,8 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
     public RegistrarIniciarSesion() {
         initComponents();
         visualizacion();
+        ini.setVisible(false);
+        re.setVisible(false);
     }
 
     public Socio getSocio() {
@@ -55,6 +58,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         jTContrasenia1 = new javax.swing.JTextField();
         jLContrasena1 = new javax.swing.JLabel();
         ini = new javax.swing.JButton();
+        l_notification = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +115,8 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
             }
         });
 
+        l_notification.setText("..........");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,12 +154,9 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                                 .addComponent(jTPoblacion))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLNombre)
-                                        .addGap(115, 115, 115))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLDireccion)
-                                        .addGap(109, 109, 109)))
+                                    .addComponent(jLNombre)
+                                    .addComponent(jLDireccion))
+                                .addGap(109, 109, 109)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTDireccion)
                                     .addComponent(jTNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)))
@@ -162,6 +165,10 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(63, 63, 63))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(l_notification)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +203,9 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(re)
                     .addComponent(ini))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(l_notification)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,6 +231,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         visualizacion();
         
         
+        re.setVisible(true);
         jLTitulo.setText("Registrar");
             
         jTContrasenia1.setEnabled(true);
@@ -252,7 +262,8 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         DBsocio db = new DBsocio();
         socio= db.ClienteIn(in);
         if(socio==null){
-            String message = "no existe";
+            
+            JOptionPane.showMessageDialog(this, "no existe");
         }else{
             Productos pros = new Productos(this, true);
             pros.setVisible(true);
@@ -267,7 +278,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
         Socio reg = new Socio();
         reg.registrar(jTNombre.getText(), jTEmail.getText().trim(), jTDireccion.getText(), jTPoblacion.getText(),jTContrasenia1.getText().trim());
-        System.out.println("ryj4rty");        
+             
     }//GEN-LAST:event_reActionPerformed
 
     private void jRBInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBInicioSesionActionPerformed
@@ -275,7 +286,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
         visualizacion();
         
             jLTitulo.setText("Inicio Sesion");
-            
+            ini.setVisible(true);
             jLEmail.setEnabled(true);
             jTEmail.setEnabled(true);
             jLContrasena1.setEnabled(true);
@@ -368,6 +379,7 @@ public class RegistrarIniciarSesion extends javax.swing.JFrame {
     private javax.swing.JTextField jTEmail;
     private javax.swing.JTextField jTNombre;
     private javax.swing.JTextField jTPoblacion;
+    private javax.swing.JLabel l_notification;
     private javax.swing.JButton re;
     // End of variables declaration//GEN-END:variables
 }
