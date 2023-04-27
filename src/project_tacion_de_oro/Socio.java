@@ -60,10 +60,17 @@ public class Socio {
         DBsocio db = new DBsocio();
         db.ClienteRe(in);
     }
-    public void ModeficardatosPersonales( int id, String nombre, String correoE, String direccion, String poblacion){
+    public void ModeficardatosPersonales(Socio socio){
+        
+        DBsocio db = new DBsocio();
+        db.ClienteModificar(socio);
         
     }
-    public void HacePedido(){
+    public void HacePedido(Pedido p){
+        
+        DBsocio db = new DBsocio();
+        db.HacePedido(p);
+        
         
     }
     public void CancelarPedido(){

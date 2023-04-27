@@ -11,4 +11,6 @@ package project_tacion_de_oro;
 public interface Database {
     public Socio ClienteIn(Socio socio);
     public void ClienteRe(Socio socio);
+    public void ClienteModificar(Socio socio);
+    
 }

@@ -22,8 +22,11 @@ public class DBsocio implements Database{
         DefaultTableModel l = new DefaultTableModel();
         Connection con = null;
         try {
+            System.out.println("dsgw3rg");
             Class.forName("com.mysql.jdbc.Driver");
-            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tacondeoro","root","");       
+//            DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora"); 
+            System.out.println("fdsghwr");
             PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ");
             preparedStmtCheck.setString(1, Socio.getCorreoE());
             preparedStmtCheck.setString(2, Socio.getPassword());
@@ -56,7 +59,7 @@ public class DBsocio implements Database{
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tacondeoro","root","");       
+            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora");       
             PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ");
             preparedStmtCheck.setString(1, Socio.getCorreoE());
             preparedStmtCheck.setString(2, Socio.getPassword());
@@ -78,5 +81,37 @@ public class DBsocio implements Database{
         }
         
     }
+    @Override
+    public void ClienteModificar(Socio socio) {
+        Socio Socio = socio ;
+        
+        ResultSet rs = null;
+        PreparedStatement preparedStmt;
+        DefaultTableModel l = new DefaultTableModel();
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora");       
+            
+           
+            
+                preparedStmt =con.prepareStatement("update  socio set nombre=?,correo=?,direccion=?,poblacion=?,contrasenia=? where  idsocio=? ");
+                preparedStmt.setString(1, Socio.getNombre());
+                preparedStmt.setString(2, Socio.getCorreoE());
+                preparedStmt.setString(3, Socio.getDireccion());
+                preparedStmt.setString(4, Socio.getPoblacion());
+                preparedStmt.setString(5, Socio.getPassword());  
+                preparedStmt.setInt(6, Socio.getId()); 
+                preparedStmt.execute();
+                System.out.println("ya esta actualizado");
+            
+        } catch (Exception e) {
+            System.out.println("" +e.getMessage());
+        } finally {
+        }
+        
+    }
+
+    
     
 }

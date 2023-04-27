@@ -18,7 +18,7 @@ public class MisDatos extends javax.swing.JDialog {
      */
     
     private Productos padre=null;
-    
+    private Socio socio; 
     
     
     public MisDatos(javax.swing.JDialog parent, boolean modal) {
@@ -26,7 +26,7 @@ public class MisDatos extends javax.swing.JDialog {
         
         initComponents();
         padre=(Productos)parent; 
-        Socio socio=padre.padre.getSocio();
+        socio=padre.padre.getSocio();
         tf_nombre.setText(socio.getNombre());
         tf_correo.setText(socio.getCorreoE());
         tf_direccion.setText(socio.getDireccion());
@@ -198,8 +198,8 @@ public class MisDatos extends javax.swing.JDialog {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-       // socio.ModeficardatosPersonales(1,tf_nombre.getText(), tf_correo.getText(), tf_direccion.getText(), tf_contraseña.getText());
+       Socio socio1=new Socio(socio.getId(),tf_nombre.getText(), tf_correo.getText(), tf_direccion.getText(),tf_poblacion.getText(), tf_contraseña.getText());
+       socio1.ModeficardatosPersonales(socio1);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
