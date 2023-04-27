@@ -27,13 +27,13 @@ public class DBsocio implements Database{
             //DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
             con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora"); 
             System.out.println("fdsghwr");
-            PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ");
+            PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             preparedStmtCheck.setString(1, Socio.getCorreoE());
             preparedStmtCheck.setString(2, Socio.getPassword());
             rs = preparedStmtCheck.executeQuery();
            
             if(rs.next() && rs.absolute(1) ){
-                            Socio1= new Socio(rs.getInt(1),rs.getString(2) ,rs.getString(3) ,rs.getString(4) ,rs.getString(5) ,rs.getString(6));
+                Socio1= new Socio(rs.getInt(1),rs.getString(2) ,rs.getString(3) ,rs.getString(4) ,rs.getString(5) ,rs.getString(6));
                             
                             
                             
