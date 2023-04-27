@@ -11,45 +11,45 @@ import javax.swing.table.DefaultTableModel;
  * @author usuario
  */
 public class ConseguirMisPedidos extends javax.swing.JDialog {
-    DefaultTableModel dtmPersonas=null;
+    DefaultTableModel dtmPedidos=null;
     /**
      * Creates new form ConseguirMisPedidos
      */
     public ConseguirMisPedidos(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        dtmPersonas = new DefaultTableModel();
-        dtmPersonas.addColumn("ID");
-        dtmPersonas.addColumn("Linea Pedido");
-        dtmPersonas.addColumn("Fecha");
-        dtmPersonas.addColumn("Total");
+        dtmPedidos = new DefaultTableModel();
+        dtmPedidos.addColumn("ID");
+        dtmPedidos.addColumn("Linea Pedido");
+        dtmPedidos.addColumn("Fecha");
+        dtmPedidos.addColumn("Total");
         //asignamos el modelo de la vista tabla:
-        tbl_pedidos.setModel(dtmPersonas);
+        tbl_pedidos.setModel(dtmPedidos);
         
         Object [] fila1= new Object[4];
                 fila1[0]=1;// del resultSet obtengo la primera columna 
                 fila1[1]="Linea1";//columna del nombre
                 fila1[2]="20/12/2002";
                 fila1[3]=234;
-                dtmPersonas.addRow(fila1);
+                dtmPedidos.addRow(fila1);
         Object [] fila2= new Object[4];
                 fila2[0]=2;// del resultSet obtengo la primera columna 
                 fila2[1]="Linea2";//columna del nombre
                 fila2[2]="1/1/2002";
                 fila2[3]=124;
-                dtmPersonas.addRow(fila2);
+                dtmPedidos.addRow(fila2);
         Object [] fila3= new Object[4];
                 fila3[0]=3;// del resultSet obtengo la primera columna 
                 fila3[1]="Linea3";//columna del nombre
                 fila3[2]="14/12/2005";
                 fila3[3]=654;
-                dtmPersonas.addRow(fila3);
+                dtmPedidos.addRow(fila3);
         Object [] fila4= new Object[4];
                 fila4[0]=4;// del resultSet obtengo la primera columna 
                 fila4[1]="Linea4";//columna del nombre
                 fila4[2]="28/11/2005";
                 fila4[3]=999;
-                dtmPersonas.addRow(fila4);
+                dtmPedidos.addRow(fila4);
                 
         
     }
@@ -81,6 +81,11 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_pedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_pedidosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_pedidos);
 
         jLabel1.setText("Consegir Mis  Pedidos");
@@ -94,7 +99,7 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addGap(199, 199, 199))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(34, 283, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -105,22 +110,29 @@ public class ConseguirMisPedidos extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbl_pedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_pedidosMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tbl_pedidosMouseClicked
 
     /**
      * @param args the command line arguments
