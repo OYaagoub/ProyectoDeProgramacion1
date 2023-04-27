@@ -69,7 +69,7 @@ public class Socio {
     public void HacePedido(Pedido p){
         
         DBsocio db = new DBsocio();
-        db.HacePedido(p);
+        
         
         
     }
