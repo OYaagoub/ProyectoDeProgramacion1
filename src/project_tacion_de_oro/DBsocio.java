@@ -23,8 +23,8 @@ public class DBsocio implements Database{
         Connection con = null;
         try {
             System.out.println("dsgw3rg");
-            Class.forName("com.mysql.jdbc.Driver");
-//            DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
             con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora"); 
             System.out.println("fdsghwr");
             PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ");
@@ -58,7 +58,7 @@ public class DBsocio implements Database{
         DefaultTableModel l = new DefaultTableModel();
         Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");;
             con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora");       
             PreparedStatement preparedStmtCheck =con.prepareStatement("select * from socio where correo=? and contrasenia=? LIMIT 1 ");
             preparedStmtCheck.setString(1, Socio.getCorreoE());
@@ -90,7 +90,7 @@ public class DBsocio implements Database{
         DefaultTableModel l = new DefaultTableModel();
         Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","roota","toora");       
             
            
