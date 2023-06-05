@@ -237,7 +237,7 @@ public class Productos extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Hace_Pedido pros = new Hace_Pedido(this, true);
+        Hacer_Pedido pros = new Hacer_Pedido(this, true);
         pros.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed

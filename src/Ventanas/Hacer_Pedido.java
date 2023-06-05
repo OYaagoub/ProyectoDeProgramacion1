@@ -4,18 +4,49 @@
  */
 package Ventanas;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
+import project_tacion_de_oro.LineaPedido;
+import project_tacion_de_oro.Pedido;
+
 /**
  *
  * @author usuario
  */
-public class Hace_Pedido extends javax.swing.JDialog {
+public class Hacer_Pedido extends javax.swing.JDialog {
+
+    DefaultTableModel dtmProductosCesta;
+    DefaultListModel dlmlistaPedidos;
+    Date fecha = new Date();
+    ArrayList<LineaPedido> listLineaPedido;
+    Pedido pedido = new Pedido();
 
     /**
      * Creates new form Hace_Pedido
      */
-    public Hace_Pedido(javax.swing.JDialog parent, boolean modal) {
+    public Hacer_Pedido(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        dtmProductosCesta = new DefaultTableModel();
+        dtmProductosCesta.addColumn("idPedido");
+        dtmProductosCesta.addColumn("Cantidad");
+
+        Object[] fila1 = new Object[2];
+        fila1[0] = 1;
+        fila1[1] = 100;
+        dtmProductosCesta.addRow(fila1);
+        jTProductosCesta.setModel(dtmProductosCesta);
+        Object[] fila2 = new Object[2];
+        fila2[0] = 2;
+        fila2[1] = 200;
+        dtmProductosCesta.addRow(fila2);
+        jTProductosCesta.setModel(dtmProductosCesta);
+
+        listLineaPedido = new ArrayList();
+        Pedido pedido = new Pedido();
     }
 
     /**
@@ -27,9 +58,10 @@ public class Hace_Pedido extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTProductosCesta = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -43,7 +75,7 @@ public class Hace_Pedido extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTProductosCesta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,7 +86,7 @@ public class Hace_Pedido extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTProductosCesta);
 
         jLabel1.setText("Cantidad:");
 
@@ -65,12 +97,29 @@ public class Hace_Pedido extends javax.swing.JDialog {
         jLabel3.setText("Stock:");
 
         jButton1.setText("PEDIR O SEGUIR PIDINEDO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("CONFIRMAR");
 
+        buttonGroup1.add(rb_seguirpidiendo);
         rb_seguirpidiendo.setText("SEGUIR PIDIENDO");
+        rb_seguirpidiendo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_seguirpidiendoActionPerformed(evt);
+            }
+        });
 
+        buttonGroup1.add(rb_pedir);
         rb_pedir.setText("PEDIR");
+        rb_pedir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_pedirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,6 +200,45 @@ public class Hace_Pedido extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void rb_pedirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_pedirActionPerformed
+        // TODO add your handling code here:
+        LineaPedido lp = null;
+        Pedido p = null;
+        String idped, cantidad;
+        
+        for (int x = 0; x < dtmProductosCesta.getRowCount(); x++) {
+            idped = "" + dtmProductosCesta.getValueAt(x, 0);
+            cantidad = "" + dtmProductosCesta.getValueAt(x, 1);
+            lp = new LineaPedido(Integer.parseInt(idped), Integer.parseInt(cantidad));
+            listLineaPedido.add(lp);
+            
+
+        }
+            pedido.getLineaPedido().addAll(listLineaPedido);
+            System.out.println(pedido.getLineaPedido().toString());
+        //Creo un string fecha que nos da como el resultado la fecha del dia en el que se realiza esta linea de pedido.
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaActualFormateada = formatoFecha.format(fecha);
+        System.out.println("Fecha actual: " + fechaActualFormateada);
+        
+        //CREO EL PEDIDO INTRODUCIENDO EL ARRAYLISTDE LINEASPEDIDO
+
+        p = new Pedido("" + fechaActualFormateada, 23, listLineaPedido);
+        System.out.println(p.toString());
+    }//GEN-LAST:event_rb_pedirActionPerformed
+
+    private void rb_seguirpidiendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_seguirpidiendoActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_rb_seguirpidiendoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -168,20 +256,21 @@ public class Hace_Pedido extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Hace_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Hacer_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Hace_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Hacer_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Hace_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Hacer_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Hace_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Hacer_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Hace_Pedido dialog = new Hace_Pedido(new javax.swing.JDialog(), true);
+                Hacer_Pedido dialog = new Hacer_Pedido(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -194,6 +283,7 @@ public class Hace_Pedido extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -201,7 +291,7 @@ public class Hace_Pedido extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTProductosCesta;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel label_articulo;
