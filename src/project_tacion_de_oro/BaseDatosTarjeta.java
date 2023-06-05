@@ -10,6 +10,6 @@ package project_tacion_de_oro;
  */
 public interface BaseDatosTarjeta {
     
-    public TarjetaBancaria  GuardarTarjeta( Socio socio);
+    public void  GuardarTarjeta( TarjetaBancaria a);
     public void RecuperarTarjeta(int idsocio);
 }

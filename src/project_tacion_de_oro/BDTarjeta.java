@@ -17,36 +17,36 @@ import javax.swing.table.DefaultTableModel;
 public class BDTarjeta implements BaseDatosTarjeta{
 
     @Override
-    public TarjetaBancaria GuardarTarjeta( Socio socio ) {
-//       
-//        TarjetaBancaria tarjetaBancaria1 = null ;
-//        ResultSet rs = null;
-//        PreparedStatement preparedStmt;
-//        DefaultTableModel l = new DefaultTableModel();
-//        Connection con = null;
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tacondeoro","root","");       
-//            PreparedStatement preparedStmtCheck =con.prepareStatement("select idtarjeta,numero from tarjetabancaria,socio where idsocio=? and contrasenia=? LIMIT 1 ");
-//            preparedStmtCheck.setString(1,"");
-//            rs = preparedStmtCheck.executeQuery();
-//           
-//            if(rs.next() && rs.absolute(1) ){
-//                            Socio1= new Socio(rs.getInt(1),rs.getString(2) ,rs.getString(3) ,rs.getString(4) ,rs.getString(5) ,rs.getString(6));
-//                            
-//                            
-//                            
-//                        }
-//        } catch (Exception e) {
-//            System.out.println(""+e.getMessage());
-//        } finally {
-//        }
-//        
-//        
-//        
-//    
-//          return Socio1;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void GuardarTarjeta( TarjetaBancaria a ) {
+       
+        TarjetaBancaria tarjetaBancaria1 = null ;
+        ResultSet rs = null;
+        PreparedStatement preparedStmt;
+        DefaultTableModel l = new DefaultTableModel();
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/sql7614373","root","");       
+            PreparedStatement preparedStmtCheck =con.prepareStatement("select idtarjeta,numero from tarjetabancaria,socio where idsocio=? and contrasenia=? LIMIT 1 ");
+            preparedStmtCheck.setString(1,"");
+            rs = preparedStmtCheck.executeQuery();
+           
+            if(rs.next() && rs.absolute(1) ){
+                          
+                            
+                            
+                            
+                        }
+        } catch (Exception e) {
+            System.out.println(""+e.getMessage());
+        } finally {
+        }
+        
+        
+        
+    
+          
+        
     }
 
     @Override

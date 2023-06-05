@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import javax.swing.table.DefaultTableModel;
 import project_tacion_de_oro.*;
 
 /**
@@ -12,6 +13,7 @@ import project_tacion_de_oro.*;
  */
 public class Productos extends javax.swing.JDialog {
     RegistrarIniciarSesion padre=null;
+    DefaultTableModel recuperarArticulos;
     /**
      * Creates new form Productos
      */
@@ -20,6 +22,10 @@ public class Productos extends javax.swing.JDialog {
         initComponents();
         padre = (RegistrarIniciarSesion)parent;
         Socio socio =padre.getSocio();
+        recuperarArticulos = new DefaultTableModel();
+        DBProductos M = new DBProductos();
+        recuperarArticulos=M.recuperarArticulos();
+        jtable.setModel(recuperarArticulos);
     }
 
     /**
@@ -34,7 +40,7 @@ public class Productos extends javax.swing.JDialog {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtable = new javax.swing.JTable();
         tf_buscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -54,7 +60,7 @@ public class Productos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,7 +71,7 @@ public class Productos extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtable);
 
         jLabel1.setText("Buscar :");
 
@@ -318,7 +324,7 @@ public class Productos extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtable;
     private javax.swing.JRadioButton rd_Bolso;
     private javax.swing.JRadioButton rd_Complemento;
     private javax.swing.JRadioButton rd_Zapatos;
