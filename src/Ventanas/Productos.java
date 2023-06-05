@@ -28,6 +28,14 @@ public class Productos extends javax.swing.JDialog {
         jtable.setModel(recuperarArticulos);
     }
 
+    public DefaultTableModel getRecuperarArticulos() {
+        return recuperarArticulos;
+    }
+
+    public void setRecuperarArticulos(DefaultTableModel recuperarArticulos) {
+        this.recuperarArticulos = recuperarArticulos;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
